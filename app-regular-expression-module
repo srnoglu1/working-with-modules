@@ -1,35 +1,35 @@
 import re
 
-# result = dir(re)
+result = dir(re)
 
-# re module
+re module
 
 str = "Python Course: Your Python Programming Guide | 40 hours"
 
-# re.findall()
+re.findall()
 
-# result = re.findall("Python",str)
-# result = len(result)
+result = re.findall("Python",str)
+result = len(result)
 
-# re.split()
+re.split()
 
-# result = re.split(" ", str)
-# result = re.split("R", str)
+result = re.split(" ", str)
+result = re.split("R", str)
 
-# re.sub()
+re.sub()
 
-# result = re.sub(" ","-",str)
-# result = re.sub("\s","-",str)
+result = re.sub(" ","-",str)
+result = re.sub("\s","-",str)
 
-# re.search()
+re.search()
 
-# result = re.search("Python",str)
+result = re.search("Python",str)
 
-# result = result.span()
-# result = result.start()
-# result = result.end()
-# result = result.group()
-# result = result.string
+result = result.span()
+result = result.start()
+result = result.end()
+result = result.group()
+result = result.string
 
 # regular expression 
 
