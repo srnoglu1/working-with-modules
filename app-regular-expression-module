@@ -1,0 +1,169 @@
+import re
+
+# result = dir(re)
+
+# re module
+
+str = "Python Course: Your Python Programming Guide | 40 hours"
+
+# re.findall()
+
+# result = re.findall("Python",str)
+# result = len(result)
+
+# re.split()
+
+# result = re.split(" ", str)
+# result = re.split("R", str)
+
+# re.sub()
+
+# result = re.sub(" ","-",str)
+# result = re.sub("\s","-",str)
+
+# re.search()
+
+# result = re.search("Python",str)
+
+# result = result.span()
+# result = result.start()
+# result = result.end()
+# result = result.group()
+# result = result.string
+
+# regular expression 
+
+"""
+    [] - All characters written between square brackets
+    searched.
+         [abc] => a      : 1 match
+                  ac     : 2 match 
+                  Python : No matches
+         [a-e]  => [abcde]
+         [1-5]  => [12345]
+         [0-39] => [01239]   
+         [^abc] => characters other than abc.
+         [^0-9] => non-digit characters.
+"""
+
+result = re.findall("[abc]",str)
+result = re.findall("[sat]",str)
+result = re.findall("[a-e]", str)
+result = re.findall("[a-z]", str)
+result = re.findall("[0-5]", str)
+result = re.findall("[^abc]", str)
+result = re.findall("[^0-9]", str)
+
+"""
+    . - Indicates any single character.
+        .. => a    : No match
+              ab   : 1 match
+              abc  : 1 match
+              abcd : 2 matches
+    
+"""
+
+result = re.findall("...", str)
+result = re.findall("Py..on", str)
+
+"""
+    ^ - Does it start with the specified string characters?
+    ^a => a:    1 match
+          abc:  1 match
+          bac:  No match
+"""
+
+result = re.findall("^P",str)
+
+
+"""
+    $ - Does it end with the specified character?
+    a$ => a      : 1 match
+          lamba  : 1 match
+          Python : No match 
+"""
+
+result = re.findall("s$",str)
+result = re.findall("hours$",str)
+result = re.findall("hourss$",str)
+
+"""
+     * - Zero or more of a character
+         controls.
+         ma*n => mn     : 1 match
+                 man    : 1 match
+                 maaan  : 1 match
+                 main   : No match (n' does not come after a'.) 
+"""
+
+"""
+     + - One or more of a character
+         controls.
+         ma+n => mn     : No match
+                 man    : 1 match
+                 maaan  : 1 match
+                 main   : No match (n' does not come after a'.) 
+"""
+
+"""
+    ? - A character zero or once
+        controls.
+        ma+n => mn     : No match
+                man    : 1 match
+                maaan  : 1 match
+                main   : No match (n' does not come after a'.) 
+"""
+
+result = re.findall("ho?urs",str)
+
+"""
+    {} - Checks the number of characters.
+        al{2}   => After the a, the character 1 must repeat 2 times.
+        al{2,3} =>After the a character, 1 character should be repeated at least 2 times and at most 3 times.
+        [0-9]{2,4} =>numbers with a minimum of 2 and a maximum of 4 digits.
+"""
+result = re.findall("a{2}", str)
+result = re.findall("[0-9]{2}", str)
+
+"""
+    | - one of the alternative options must come true.
+        a|b => a ya da b
+            cde =>    no match
+            ade =>    1 match
+            acdbea => 3 match 
+"""
+
+"""
+    () - used for grouping.
+         (a|b|c)xz => The characters a, b, c must be followed by xz.
+"""
+
+
+"""
+    \ - It allows us to search for special characters.
+        \$a => $looks for the character a after the character. So regular exp. It is not interpreted by the engine.
+    \A - Is the specified character at the beginning of the string?
+         \Athe =>Is it at the beginning of the string ?
+        result = re.findall("\APython", str)
+        result = re.findall("hours\Z", str)
+    \Z -Is the specified character at the end of the string?
+         the\Z => at the end of the string?
+    \b -Is the specified character at the beginning or end of the word?
+         \bthe => is the beginning of the word?
+         the\b => at the end of the word?
+    \B - Is the specified character not at the beginning or end of the word?
+         \Bthe => isn't (the) beginning of the word?
+         the\B => isn't (the) end of the word?
+    
+    \d - It means the same as [0-9], that is, it looks for numbers.
+         \d => 12abc34
+    \D - It means the same as [^0-9] , that is, it looks for non-digits.
+         \D => 1ab44_50
+    \s - Searches for whitespace characters.  
+    \S - Except for whitespace characters.
+    \w - Alphabetic characters, numbers, and underscore character.
+    \W - \opposite of w
+    
+"""
+
+print(result)
